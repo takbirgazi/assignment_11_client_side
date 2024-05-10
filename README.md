@@ -21,8 +21,7 @@
 **Name Of NPM package**
 * prop-types
 * react-toastify
-* react-icons
-* sweetalert 
+* react-icons 
 
 **Require NPM package**
 * react-helmet

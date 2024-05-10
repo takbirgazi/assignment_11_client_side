@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 
 const Root = () => {
@@ -8,7 +9,7 @@ const Root = () => {
             <div>
                 <Outlet></Outlet>
             </div>
-            
+            <ToastContainer />
         </div>
     );
 };
