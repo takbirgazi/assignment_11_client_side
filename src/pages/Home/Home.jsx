@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import LoactionMap from "../LoactionMap/LoactionMap";
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
                 <title>Home - Seven Star</title>
             </Helmet>
             this is home page
+            <LoactionMap></LoactionMap>
         </div>
     );
 };

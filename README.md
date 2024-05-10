@@ -1,6 +1,6 @@
 # Seven Star
 
-**Live Preview** [Click Here...](https://assignment-10-5fcf9.web.app/)
+**Live Preview** [Click Here...](https://assignment11-c544b.web.app/)
 
 
 **Features Of My Website**
@@ -25,4 +25,3 @@
 
 **Require NPM package**
 * react-helmet
-* react-awesome-reveal
