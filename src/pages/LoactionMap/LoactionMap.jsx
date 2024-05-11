@@ -4,8 +4,8 @@ import 'leaflet/dist/leaflet.css';
 const LoactionMap = ()=> {
     const position = [22.8373,89.5400];
     return (
-      <section>
-        <div className="container max-w-full h-[200px]">
+      <section className="z-0 relative">
+        <div className="container max-w-full h-[60vh]">
           <MapContainer
             center={position}
             zoom={10}
