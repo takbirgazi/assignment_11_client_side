@@ -25,3 +25,4 @@
 
 **Require NPM package**
 * react-helmet
+* react-leaflet

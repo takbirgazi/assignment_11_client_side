@@ -43,21 +43,25 @@ const Register = () => {
             updateProfile(auth.currentUser,{
                 displayName: name, photoURL: photoUrl
             })
-            .then(()=>{
-                navigate("/");
+            .then((data)=>{
+                console.log(data)
             })
             .catch(err=>{
                 console.error(err);
             })
-            // fetch(`jhgghjg`,{
-            //     method: "POST",
-            //     headers:{
-            //         'content-type': 'application/json'
-            //     },
-            //     body: JSON.stringify(user)
-            // })
-            // .then(res => res.json())
-            // .then(data => console.log(data))
+            fetch(`http://localhost:5000/user`,{
+                method: "POST",
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    navigate("/");
+                }
+            })
             setSuccMsg("Account Created Successfully!");
             toast("Account Created Successfully!");
         })
