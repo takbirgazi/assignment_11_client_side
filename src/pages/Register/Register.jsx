@@ -50,7 +50,7 @@ const Register = () => {
             .catch(err=>{
                 console.error(err);
             })
-            fetch(`${import.meta.env.BASE_API}/user`,{
+            fetch(`${import.meta.env.VITE_API}/user`,{
                 method: "POST",
                 headers:{
                     'content-type': 'application/json'
