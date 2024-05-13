@@ -9,6 +9,7 @@ const NavBar = () => {
         logOut();
     }
     const navList = <>
+                        <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/rooms">Rooms</NavLink></li>
                         <li><NavLink to="/myboking">My Bookings</NavLink></li>
                         {
