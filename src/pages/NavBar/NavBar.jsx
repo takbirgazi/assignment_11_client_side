@@ -1,9 +1,18 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from '../../provider/AuthProvider';
+import { useState } from "react";
 
 
 const NavBar = () => {
+    const [stiky, setStiky] = useState(false);
+    window.addEventListener("scroll", ()=>{
+        if(window.scrollY > 100){
+            setStiky(true)
+        }else{
+            setStiky(false);
+        }
+    })
     const {user, logOut} = useContext(AuthContext);
     const logOutHndler = ()=>{
         logOut();
@@ -11,7 +20,7 @@ const NavBar = () => {
     const navList = <>
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/rooms">Rooms</NavLink></li>
-                        <li><NavLink to="/myboking">My Bookings</NavLink></li>
+                        <li><NavLink to="/bookings">My Bookings</NavLink></li>
                         {
                             user ? 
                             <>
@@ -26,7 +35,7 @@ const NavBar = () => {
                     </>;
 
     return (
-        <div className="navbar bg-base-100 border-b">
+        <div className={`navbar bg-base-100 border-b z-50 ${stiky ? "fixed top-0 w-full" : ""}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
