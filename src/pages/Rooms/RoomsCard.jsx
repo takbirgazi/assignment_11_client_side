@@ -3,34 +3,35 @@ import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import { Rating } from '@mui/material';
-import { useState } from 'react';
 import PropTypes from 'prop-types'; 
+import { NavLink } from 'react-router-dom';
 
 const RoomsCard = ({CardInfo}) => {
-    const [value, setValue] = useState(2)
-    const {image} = CardInfo;
+    const {_id, image, totalReview, star} = CardInfo;
   return (
-    <Card >
-      <CardMedia
-        className='h-48'
-        component="img"
-        alt="green iguana"
-        height="140px"
-        image={image}
-      />
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">
-            <Rating
-            name="simple-controlled"
-            value={value}
-            onChange={(event, newValue) => {
-            setValue(newValue);
-            }}
-            />
-        </Button>
-      </CardActions>
-    </Card>
+    <NavLink to={`/rooms/${_id}`}>
+      <Card>
+        <CardMedia
+          className='h-48'
+          component="img"
+          alt="green iguana"
+          height="140px"
+          image={image}
+        />
+        <CardActions className='flex items-center '>
+          <Button size="small">
+              <Rating
+              name="simple-controlled"
+              value={parseInt(star)}
+              onChange={() => {
+              // setValue(newValue);
+              }}
+              />
+          </Button>
+          <span className='font-bold'>{totalReview ? totalReview : 0} Reviews</span>
+        </CardActions>
+      </Card>
+    </NavLink>
   );
 }
 

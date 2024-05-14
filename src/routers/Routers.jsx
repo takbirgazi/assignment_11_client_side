@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Rooms from "../pages/Rooms/Rooms";
 import MyBookings from "../pages/MyBookings/MyBookings";
+import RoomDeatiels from "../pages/Rooms/RoomDeatiels";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         {
           path: "/bookings",
           element: <MyBookings></MyBookings>
+        },
+        {
+            path:'/rooms/:id',
+            element: <RoomDeatiels></RoomDeatiels>,
+            loader: ({params})=> fetch(`${import.meta.env.VITE_API}/rooms/${params.id}`)
         }
       ]
     },
