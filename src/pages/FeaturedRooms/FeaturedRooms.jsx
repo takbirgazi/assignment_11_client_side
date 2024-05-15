@@ -4,7 +4,6 @@ import FeaturedRoomsCard from "./FeaturedRoomsCard";
 
 const FeaturedRooms = () => {
     const rooms = useLoaderData();
-    console.log(rooms);
     return (
         <div className="w-11/12 mx-auto">
             <div className="my-5">

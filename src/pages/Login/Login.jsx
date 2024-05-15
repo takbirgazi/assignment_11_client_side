@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
@@ -13,6 +13,7 @@ import logIn from "../../assets/image/logIn.jpg";
 
 
 const Login = () => {
+    const location = useLocation();
     const [showPwd, setShowPwd] = useState(false);
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
@@ -26,16 +27,19 @@ const Login = () => {
         signInWithPopup(auth,googleProvider)
         .then(()=>{
             toast("Log In Successfully!");
+            navigate(location.state ? location.state : "/" );
         })
         .catch(err=>{
             console.error(err.message);
             toast(err.message);
         })
     }
+    
     const signInWithGitHubHandler = ()=>{
         signInWithPopup(auth,gitHubProvider)
         .then(()=>{
             toast("Log In Successfully!");
+            navigate(location.state ? location.state : "/" );
         })
         .catch(err=>{
             console.error(err.message);
@@ -48,7 +52,7 @@ const Login = () => {
         const pwd = event.target.password.value;
         login(email,pwd)
         .then(()=>{
-            navigate('/');
+            navigate(location.state ? location.state : "/" );
         })
         .catch(err=>{
             toast(err.message);
