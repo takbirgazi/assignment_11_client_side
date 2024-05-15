@@ -20,6 +20,7 @@ const RoomDeatiels = () => {
                                 <div className="badge badge-secondary">Offer</div>
                             </h2>
                         </div>
+                        <button className="border rounded px-2 py-1 bg-blue-500 text-white font-bold text-lg w-full text-center">Book Now</button>
                     </div>
                 </div>
             </div>

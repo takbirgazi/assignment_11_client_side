@@ -1,17 +1,14 @@
-
-const FeaturedRoomsCard = () => {
+import PropTypes from 'prop-types'; 
+import { NavLink } from 'react-router-dom';
+const FeaturedRoomsCard = ({cardInfo}) => {
+    const {_id, image, description} = cardInfo;
     return (
             <div className="card bg-base-100 shadow-xl">
-                <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <figure className="h-48"><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
-                    Shoes!
-                    <div className="badge badge-secondary">NEW</div>
-                    </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>{description}</p>
                     <div className="card-actions">
-                    <div className="badge badge-outline">Fashion</div> 
-                    <div className="badge badge-outline">Products</div>
+                     <NavLink to={`/rooms/${_id}`} className="border bg-blue-500 text-white px-2 py-1 rounded-md">Book Now</NavLink>
                     </div>
                 </div>
             </div>
@@ -19,3 +16,7 @@ const FeaturedRoomsCard = () => {
 };
 
 export default FeaturedRoomsCard;
+
+FeaturedRoomsCard.propTypes = {
+    cardInfo: PropTypes.object,
+}

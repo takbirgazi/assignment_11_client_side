@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Rooms from "../pages/Rooms/Rooms";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import RoomDeatiels from "../pages/Rooms/RoomDeatiels";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
       children:[
         {
             path: "/",
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: ()=>fetch(`${import.meta.env.VITE_API}/rooms`)
         },
         {
           path: "/login",
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/rooms/:id',
-            element: <RoomDeatiels></RoomDeatiels>,
+            element: <PrivetRoute><RoomDeatiels></RoomDeatiels></PrivetRoute>,
             loader: ({params})=> fetch(`${import.meta.env.VITE_API}/rooms/${params.id}`)
         }
       ]

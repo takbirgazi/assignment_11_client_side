@@ -1,5 +1,5 @@
-import Lottie from "lottie-react";
-import loder from '../../public/loader.json';
+// import Lottie from "lottie-react";
+// import loder from '../../public/loader.json';
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Navigate } from "react-router-dom";
@@ -12,7 +12,8 @@ const PrivetRoute = ({children}) => {
     return (
             <div className="flex items-center justify-center min-h-screen">
                 <div className="w-20 h-20">
-                    <Lottie animationData={loder} loop={true} />
+                    {/* <Lottie animationData={loder} loop={true} /> */}
+                    Loading...
                 </div>
             </div>
         );

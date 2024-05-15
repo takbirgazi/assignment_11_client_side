@@ -22,6 +22,7 @@
 * prop-types
 * react-toastify
 * react-icons 
+* lottie-react
 
 **Require NPM package**
 * react-helmet
