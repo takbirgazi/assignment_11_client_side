@@ -8,6 +8,7 @@ import Rooms from "../pages/Rooms/Rooms";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import RoomDeatiels from "../pages/Rooms/RoomDeatiels";
 import PrivetRoute from "./PrivetRoute";
+import Review from "../pages/Review/Review";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             path:'/rooms/:id',
             element: <PrivetRoute><RoomDeatiels></RoomDeatiels></PrivetRoute>,
             loader: ({params})=> fetch(`${import.meta.env.VITE_API}/rooms/${params.id}`)
+        },
+        {
+          path: 'review',
+          element: <Review></Review>
         }
       ]
     },

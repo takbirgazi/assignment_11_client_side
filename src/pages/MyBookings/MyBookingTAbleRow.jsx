@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const MyBookingTAbleRow = ({bookingInfo}) => {
     const {image, name, desc} = bookingInfo;
@@ -21,7 +22,7 @@ const MyBookingTAbleRow = ({bookingInfo}) => {
                   <div className="flex flex-col md:flex-row gap-2 items-center">
                     <button className="btn btn-ghost btn-xs bg-red-500 text-white">Cancel</button>
                     <button className="btn btn-ghost btn-xs bg-blue-500 text-white">Update</button>
-                    <button className="btn btn-ghost btn-xs bg-yellow-500 text-white">Review</button>
+                    <NavLink to="/review" className="btn btn-ghost btn-xs bg-yellow-500 text-white cursor-pointer">Review</NavLink>
                   </div>
                 </th>
             </tr>
