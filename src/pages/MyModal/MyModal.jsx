@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const MyModal = ({roomInfo}) => {
-  const navigate = useNavigate()
+    const navigate = useNavigate()
     const [openModal, setOpenModal] = useState(false);
     const {user} = useContext(AuthContext);
     const roomConfirmHndlr = (desc, id)=>{
@@ -30,10 +30,26 @@ const MyModal = ({roomInfo}) => {
             toast('Booking Successfully');
             navigate(`/booking/${user.email}`);
         })
+
+        const unavaible = {availability:"unavailable"}
+
+        fetch(`${import.meta.env.VITE_API}/rooms/${roomInfo._id}`,{
+            method: "PUT",
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(unavaible)
+        })
+        .then(res => res.json())
+        .then(data=> {
+            if(data.matchedCount > 0){
+                toast('Update Successfully');
+            }
+        })
     }
     return (
         <div>
-            <p onClick={() => setOpenModal(true)}>Book Now</p>
+            <button onClick={() => setOpenModal(true)} >Book Now</button>
             <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
               <Modal.Header>Room Details</Modal.Header>
               <Modal.Body>

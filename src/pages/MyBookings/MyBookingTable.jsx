@@ -2,7 +2,6 @@ import MyBookingTAbleRow from "./MyBookingTAbleRow";
 import PropTypes from 'prop-types';
 
 const MyBookingTable = ({allBooking}) => {
-  console.log(allBooking);
     return (
        <div>
         <div className="overflow-x-auto">

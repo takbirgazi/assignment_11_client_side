@@ -16,8 +16,12 @@ const RoomDeatiels = () => {
                         <div className="flex items-center justify-between w-full">
                             <button className="py-1 px-2 border rounded bg-blue-500 text-white">{room.availability}</button>
                             <h2 className="card-title"> 
+                                {
+                                   room.special_offer && <>
                                 {room.special_offer}
                                 <div className="badge badge-secondary">Offer</div>
+                                   </> 
+                                }      
                             </h2>
                         </div>
                         <button className="border rounded px-2 py-1 bg-blue-500 text-white font-bold text-lg w-full text-center">
