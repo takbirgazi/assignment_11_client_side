@@ -23,7 +23,7 @@ const NavBar = () => {
                         {
                             user ? 
                             <>
-                              <li><NavLink to="/bookings">My Bookings</NavLink></li>
+                              <li><NavLink to={`/booking/${user?.email}`}>My Bookings</NavLink></li>
                               <li><button onClick={logOutHndler}>Log Out</button></li>
                             </> 
                             :

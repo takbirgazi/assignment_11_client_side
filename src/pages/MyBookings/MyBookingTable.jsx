@@ -1,6 +1,8 @@
 import MyBookingTAbleRow from "./MyBookingTAbleRow";
+import PropTypes from 'prop-types';
 
-const MyBookingTable = () => {
+const MyBookingTable = ({allBooking}) => {
+  console.log(allBooking);
     return (
        <div>
         <div className="overflow-x-auto">
@@ -15,7 +17,9 @@ const MyBookingTable = () => {
             </thead>
 
             <tbody>
-                <MyBookingTAbleRow></MyBookingTAbleRow>
+              {
+                allBooking.map(booking=> <MyBookingTAbleRow key={booking._id} bookingInfo={booking} ></MyBookingTAbleRow>)
+              }
             </tbody>
             
           </table>
@@ -25,3 +29,8 @@ const MyBookingTable = () => {
 };
 
 export default MyBookingTable;
+
+
+MyBookingTable.propTypes = {
+  allBooking: PropTypes.array,
+}

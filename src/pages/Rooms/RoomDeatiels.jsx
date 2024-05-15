@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
+import MyModal from "../MyModal/MyModal";
 
 
 const RoomDeatiels = () => {
     const room = useLoaderData();
-    console.log(room)
     return (
         <div className="my-5 w-10/12 mx-auto">
             <div className="card card-compact w-full bg-base-100 shadow-xl">
@@ -20,10 +20,13 @@ const RoomDeatiels = () => {
                                 <div className="badge badge-secondary">Offer</div>
                             </h2>
                         </div>
-                        <button className="border rounded px-2 py-1 bg-blue-500 text-white font-bold text-lg w-full text-center">Book Now</button>
+                        <button className="border rounded px-2 py-1 bg-blue-500 text-white font-bold text-lg w-full text-center">
+                             <MyModal roomInfo={room}></MyModal>
+                        </button>
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };

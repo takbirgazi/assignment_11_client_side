@@ -34,8 +34,9 @@ const router = createBrowserRouter([
           // loader: ()=>fetch(`${import.meta.env.VITE_API}/rooms`)
         },
         {
-          path: "/bookings",
-          element: <PrivetRoute><MyBookings></MyBookings></PrivetRoute>
+          path: "/booking/:email",
+          element: <PrivetRoute><MyBookings></MyBookings></PrivetRoute>,
+          loader:({params})=> fetch(`${import.meta.env.VITE_API}/booking/${params.email}`)
         },
         {
             path:'/rooms/:id',
