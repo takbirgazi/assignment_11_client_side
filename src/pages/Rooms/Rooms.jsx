@@ -10,10 +10,10 @@ const Rooms = () => {
         setasnd(!asnd);
     }
     useEffect(()=>{
-        fetch(`${import.meta.env.VITE_API}/rooms`)
+        fetch(`${import.meta.env.VITE_API}/rooms?sort=${asnd ? 'asc' : 'dsc'}`)
         .then(res => res.json())
         .then(data => setRooms(data))
-    },[])
+    },[asnd])
     return (
         <div className="w-11/12 mx-auto">
             <div className="my-5">

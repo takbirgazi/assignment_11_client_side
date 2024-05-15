@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const RoomsCard = ({CardInfo}) => {
-    const {_id, image, totalReview, star} = CardInfo;
+    const {_id, image, totalReview, star, price_per_night, availability} = CardInfo;
   return (
     <NavLink to={`/rooms/${_id}`}>
       <Card>
@@ -30,6 +30,10 @@ const RoomsCard = ({CardInfo}) => {
           </Button>
           <span className='font-bold'>{totalReview ? totalReview : 0} Reviews</span>
         </CardActions>
+        <div className='flex items-center justify-between my-2 px-2'>
+            <h2 className='font-bold'>${price_per_night}</h2>
+            <h2 className='font-bold'>{availability}</h2>
+        </div>
       </Card>
     </NavLink>
   );
