@@ -47,9 +47,10 @@ const MyModal = ({roomInfo}) => {
             }
         })
     }
+
     return (
         <div>
-            <button onClick={() => setOpenModal(true)} >Book Now</button>
+            <button className={`${roomInfo?.availability == 'unavailable' ? 'hidden' : ''}`} onClick={() => setOpenModal(true)} >Book Now</button>
             <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
               <Modal.Header>Room Details</Modal.Header>
               <Modal.Body>
