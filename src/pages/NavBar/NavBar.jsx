@@ -20,11 +20,11 @@ const NavBar = () => {
     const navList = <>
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/rooms">Rooms</NavLink></li>
-                        <li><NavLink to="/bookings">My Bookings</NavLink></li>
                         {
                             user ? 
                             <>
-                               <li><button onClick={logOutHndler}>Log Out</button></li>
+                              <li><NavLink to="/bookings">My Bookings</NavLink></li>
+                              <li><button onClick={logOutHndler}>Log Out</button></li>
                             </> 
                             :
                             <>
